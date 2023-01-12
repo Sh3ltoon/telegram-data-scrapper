@@ -5,6 +5,8 @@ Message data-scraping tool for telegram.
 Learnt python on the fly when needed to build this tool, sharing with you guys, to improve and to help anybody that needs the same solution.
 
 1 - Telegram Listener Forwarder in python (doesnt Bypass forward restriction)
+
+
 2 - Telegram Listener Javascript, bypass Telegram Restrict saving Content.
 
 
