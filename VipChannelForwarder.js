@@ -1,38 +1,14 @@
-/*const { TelegramClient } = require("telegram");
-const { StringSession } = require("telegram/sessions");
-const input = require("input"); // npm i input
 
-const apiId = 29924900;
-const apiHash = "f61e9a5e31fb7e22dceccfb6fb23c653";
-  await client.sendMessage("me", { message: "Hello!" });
-const stringSession = new StringSession("1BAAOMTQ5LjE1NC4xNjcuOTEAUBq0vqdkAzgFUUv7nR3E+u7moxSZOL0YgcghnVRjIBX4iCPN3fhWg6AA1E9TBoiMmf/XA6rEE0uv/DUe+WN4xWf2hA1TRiVewasj2fwJ6DCgVpgYMTOvCPtY8s6/0BJsi+s6sNMsVMtCDTazWvQomdzvPCX9Ewjc6ebWPSnwJTmsj+RrjaWmoMXhDr40mossTW8lawdkxKipe5G5D9c7OtjG2vBZ4i+9B7ckFqYQyjrzHnL8J3h+jsDxw4SfMJi/y+O6smuw0P5iD4L/AgXaslqkHcVH0U6CH1DQGMBMC2oahMCkGhgSAXyXwy4Z/F1PdYuz7tFC8K1d9Fi0q4KG3E8="); // fill this later with the value from session.save()
-
-(async () => {
-  console.log("Loading interactive example...");
-  const client = new TelegramClient(stringSession, apiId, apiHash, {
-    connectionRetries: 5,
-  });
-  await client.start({
-    phoneNumber: async () => await input.text("Please enter your number: "),
-    password: async () => await input.text("Please enter your password: "),
-    phoneCode: async () =>
-      await input.text("Please enter the code you received: "),
-    onError: (err) => console.log(err),
-  });
-  console.log("You should now be connected.");
-  console.log(client.session.save()); // Save this string to avoid logging in again
-  await client.sendMessage("me", { message: "Hello!" });
-})();*/
 const { TelegramClient } = require("telegram");
 const { StringSession } = require("telegram/sessions");
 const MTProto = require("@mtproto/core");
 const path = require("path");
 const { getPhone, getCode, getPassword } = require("./utils");
 
-const api_id = "29924900"; // insert api_id here
-const apiId = 29924900
-const api_hash = "f61e9a5e31fb7e22dceccfb6fb23c653"; // insert api_hash here
-const stringSession = new StringSession("1BAAOMTQ5LjE1NC4xNjcuOTEAUBq0vqdkAzgFUUv7nR3E+u7moxSZOL0YgcghnVRjIBX4iCPN3fhWg6AA1E9TBoiMmf/XA6rEE0uv/DUe+WN4xWf2hA1TRiVewasj2fwJ6DCgVpgYMTOvCPtY8s6/0BJsi+s6sNMsVMtCDTazWvQomdzvPCX9Ewjc6ebWPSnwJTmsj+RrjaWmoMXhDr40mossTW8lawdkxKipe5G5D9c7OtjG2vBZ4i+9B7ckFqYQyjrzHnL8J3h+jsDxw4SfMJi/y+O6smuw0P5iD4L/AgXaslqkHcVH0U6CH1DQGMBMC2oahMCkGhgSAXyXwy4Z/F1PdYuz7tFC8K1d9Fi0q4KG3E8="); // fill this later with the value from session.save()
+const api_id = "1234"; // insert api_id here
+const apiId = 1234
+const api_hash = "hash here"; // insert api_hash here
+const stringSession = new StringSession(""); // fill this later with the value from session.save()
 const client = new TelegramClient(stringSession, apiId, api_hash, {
   connectionRetries: 5,
 });
