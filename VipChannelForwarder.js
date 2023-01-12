@@ -8,10 +8,13 @@ const { getPhone, getCode, getPassword } = require("./utils");
 const api_id = "1234"; // insert api_id here
 const apiId = 1234
 const api_hash = "hash here"; // insert api_hash here
-const stringSession = new StringSession(""); // fill this later with the value from session.save()
+const stringSession = new StringSession(""); // fill this later with the value from session.save() run logger.js to fetch stringSession
 const client = new TelegramClient(stringSession, apiId, api_hash, {
   connectionRetries: 5,
 });
+
+const targetChannel = 22222222 // https://web.telegram.org/k/#-22222222
+const destChannel = "" // String with -100ChannelID ex https://web.telegram.org/k/#-11111111, destCHannel = -10011111111
 
 const mtproto = new MTProto({
   api_id: api_id,
@@ -30,9 +33,9 @@ function startListener() {
       .map(({ message }) => message);
     for (const message of newChannelMessages) {
       console.log(`[${message.peer_id.channel_id}] ${message.message}`);
-      if (message.peer_id.channel_id == 1770197116) {
+      if (message.peer_id.channel_id == targetChannel) {
         console.log(message.message)
-        client.sendMessage("-1001887391439", {message: message.message})
+        client.sendMessage(destChannel, {message: message.message})
       } else {
         console.log("message from another channel")
       }
